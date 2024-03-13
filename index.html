@@ -1,9 +1,125 @@
 <!DOCTYPE HTML>
 <html>
-	<body>
+	<head>
+		<title>Object-Aware Gaussian Splatting for Robotic Manipulation</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=1000">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTN47JKBFT"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-CTN47JKBFT');
+		</script>
+
+		<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+		<meta property="og:url"           content="todo:url" />
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="Object-Aware Gaussian Splatting for Robotic Manipulation" />
+		<meta property="og:description"   content="todo:abstract" />
+		<script type="text/javascript" id="MathJax-script" async
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+	
+	</head>
+	<body id="top">
 		<!-- Main -->
 			<div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
-				<h1 style="text-align: center; margin-bottom: 0.5em;"><font color="4e79a7">Object-Aware Gaussian Splatting for Robotic Manipulation</font> </h1>
+					<section id="four">
+						
+
+						<h1 style="text-align: center; margin-bottom: 0.5em;"><font color="4e79a7">Object-Aware Gaussian Splatting for Robotic Manipulation</font> </h1>
+						
+						<hr/>
+
+						<h3>Real-time Reconstruction of Dynamic Scenes</h3>
+						<p>
+							Our method reconstructs the dynamic scene in <b>real time at 30 Hz</b> with <b>fast moving objects and robot actions</b>, with <b>only three RGB-D cameras</b>.
+						</p>
+						
+
+						<div style="text-align: center; margin-top: 0em">
+						<video width="800" controls autoplay muted>
+						<source src="videos/grasp0.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+						</video>
+						</div>
+
+						<hr/>
+
+						<h3>Persistent Semantic Features</h3>
+						<p>
+							We extract relevant semantic features at the first time step, and we can obtain peristent semantic features during dynamic movements in the scene due to explicit tracking of the underlying Gaussians. As an example, we extract the segmentation map at the first time step and show the peristent segmentation map.
+						</p>
+						
+
+						<div style="text-align: center; margin-top: 0em">
+						<video width="800" controls autoplay muted>
+						<source src="videos/seg.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+						</video>
+						</div>
+
+						<hr/>
+
+						<h3>Language-conditioned Dynamic Grasping</h3>
+						<p>
+							Our dynamic and semantic scene representation enables language-conditioned grasping, <b>even if the objects are moving in the scene!</b>
+						</p>
+						
+
+						<div style="text-align: center; margin-top: 0em">
+						<video width="800" controls autoplay muted>
+						<source src="videos/grasp_more.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+						</video>
+						</div>
+
+						<hr/>
+
+						<h3>Representation for Behavior Cloning Policies</h3>
+						<p>
+							Semantic information, 3D representation, and high frequency perception seem to be an impossible triangle... But with our representation, <b>all three features are achieved at the same time!</b> We can use our representation to train behavior cloning policies.
+						</p>
+						
+						<h4>Stacking cups</h4>
+						<div style="text-align: center; margin-top: 0em">
+						<video width="800" controls autoplay muted>
+						<source src="videos/cup.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+						</video>
+						</div>
+
+						<h4>Serving a plate</h4>
+						<div style="text-align: center; margin-top: 0em">
+						<video width="800" controls autoplay muted>
+						<source src="videos/plate.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+						</video>
+						</div>
+
+						<hr/>
 			</div>
+
+		<!-- Footer -->
+			<!-- <footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>Meet <a href="https://en.wikipedia.org/wiki/Danbo_(character)">Danbo</a> the cardboard robot.</li>
+					</ul>
+				</div>
+			</footer> -->
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
 	</body>
 </html>

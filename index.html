@@ -88,7 +88,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="#"
+                <a href="assets/pdf/corl.pdf"
                    class="external-link button is-normal ">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -181,38 +181,108 @@
   </div>
 </section>
 
-<!-- <section class="section">
+<section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Perception Representation for Behavior Cloning Policies</h2>
-
+    <h2 class="title is-3">View-Robust Behavior Cloning Policies</h2>
+    
     <p>
-      With object-centric Gaussian splatting, we have a dynamic and semantic 3D representation for visuo-motor policies! We demonstrate this by training two policies through imitation learning with Gaussians as the input representation.
+      From a test view that is distinct from the train view, we render the scene from the train view to close the perception gap. We further limit the rendering to the foreground Gaussians to avoid perception differences due to the changes in the background.
     </p>
-
+    <br/>
+    <p>
+      The <b>raw camera view</b> at <i>top right</i> corner, and the <b>rendered view</b> using foreground Gaussians at the <i>top left</i> corner.
+    </p>
+    <br/>
+    <h3 class="title is-5">Train Views</h3>
     <div class="columns is-centered">
-
       <div class="column">
         <div class="content">
-          <h5 style="text-align: center; margin-top: .75em">Stacking Cups</h5>
-          <video poster="" id="cup" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/cup.mp4"
+          <h5 style="text-align: center; margin-top: .75em">Stack Cups</h5>
+          <video poster="" id="train_stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/train_stack.mp4"
                     type="video/mp4">
           </video>
         </div>
       </div>
       <div class="column is-centered">  
         <div class="content">
-          <h5 style="text-align: center; margin-top: .75em">Serving a Plate</h5>
-          <video poster="" id="plate" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/plate.mp4"
+          <h5 style="text-align: center; margin-top: .75em">Unstack Cups</h5>
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/train_unstack.mp4"
                     type="video/mp4">
           </video>
         </div>
-        
       </div>
     </div>
+
+    <h3 class="title is-5">Test Views (Close)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h5 style="text-align: center; margin-top: .75em">Stack Cups</h5>
+          <video poster="" id="close_stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/close_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <h5 style="text-align: center; margin-top: .75em">Unstack Cups</h5>
+          <video poster="" id="close_unstack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/close_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Test Views (Zoom-out)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h5 style="text-align: center; margin-top: .75em">Stack Cups</h5>
+          <video poster="" id="front_stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/front_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <h5 style="text-align: center; margin-top: .75em">Unstack Cups</h5>
+          <video poster="" id="front_unstack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/front_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Test Views (Side)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h5 style="text-align: center; margin-top: .75em">Stack Cups</h5>
+          <video poster="" id="side_stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/side_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <h5 style="text-align: center; margin-top: .75em">Unstack Cups</h5>
+          <video poster="" id="side_unstack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/side_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
   </div>
-</section> -->
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">

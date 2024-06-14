@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Object-Aware Gaussian Splatting for Robotic Manipulation">
+        content="3D-Aware Manipulation with Object-Centric Gaussian Splatting">
   <meta name="keywords" content="Real-time Reconstruction, Gaussian Splatting, Robotic Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Object-Aware Gaussian Splatting for Robotic Manipulation</title>
+  <title>3D-Aware Manipulation with Object-Centric Gaussian Splatting</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JX0F75QDW"></script> -->
@@ -171,7 +171,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Understanding the dynamics of our world in 3D is critical for the performance and robustness of robotics applications. Although recent progress has married vision foundation models and volumetric rendering to oﬀer semantic 3D representations, neither the inference time of large models nor the update speed of volumetric representation meets the desired update rate of real-time robotic manipulation. In this work, we propose to inject “objectness” into a semantic representation based on 3D Gaussians. The Gaussians with the same semantic labels can initialize and update together, leading to fast updates in response to robot and object movements. All necessary semantic information is extracted at the initial step from pretrained foundation models, thus circumventing the inference bottleneck of large models but still obtaining semantic information. With only three camera views, our proposed representation is able to capture a dynamic scene at 30 Hz in real-time, which is suﬃcient for most manipulation tasks. Leveraging the representation based on our object-aware Gaussian splatting, we are able to solve language-conditioned dynamic grasping, for which the robot grasps dynamically moving objects speciﬁed by open vocabulary queries. We also use the representation to train a visuomotor policy via behavior cloning and show that the policy achieves comparable results with image-based policies with pretrained encoders.
+            3D Understanding of the environment is critical for the robustness and performance of robot learning systems. As an example, 2D image-based policies can easily fail due to a slight change in camera viewpoints. However, when constructing a 3D representation, previous approaches often either sacriﬁce the rich semantic abilities of 2D foundation models or a fast update rate that is crucial real-time robotic manipulation. In this work, we propose a 3D representation based on 3D Gaussians that is both semantic and dynamic. With only a single or a few camera views, our proposed representation is able to capture a dynamic scene at 30 Hz in real-time in response to robot and object movements, which is sufﬁcient for most manipulation tasks. Our key insight in achieving this fast update frequency is to make object-centric updates to the representation. Semantic information can be extracted at the initial step from pretrained foundation models, thus circumventing the inference bottleneck of large models during policy rollouts. Leveraging our object-centric Gaussian representation, we demonstrate a straightforward yet effective way to achieve view-robustness for visuomotor policies. Our representation also enables language-conditioned dynamic grasping, for which the robot perform geometric grasp of moving objects speciﬁed by open vocabulary queries.
           </p>
         </div>
       </div>

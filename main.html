@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="3D-Aware Manipulation with Object-Centric Gaussian Splatting">
+  <meta name="keywords" content="Real-time Reconstruction, Gaussian Splatting, Robotic Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D-Aware Manipulation with Object-Centric Gaussian Splatting</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JX0F75QDW"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://concept-fusion.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">3D-Aware Manipulation with Object-Centric Gaussian Splatting</h1>
+          <!-- <h2 class="title is-6 publlication-title">Robotics: Science and Systems (RSS) 2023</h2> -->
+          <!-- <div class="is-size-6 publication-authors">
+            <span class="author-block">
+              <a href="https://krrish94.github.io">Krishna Murthy Jatavallabhula</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.alihkw.com/">Alihusein Kuwajerwala</a><sup>2</sup><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://georgegu1997.github.io/">Qiao Gu</a><sup>3</sup><sup>*</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>MIT</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="assets/pdf/corl.pdf"
+                   class="external-link button is-normal ">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal " disabled="true">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal " disabled="true">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal " disabled="true">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        Object-centric Gaussian splatting reconstructs dynamic robotic manipulation scenes <b>in real-time at 30Hz</b> with <b>semantic features</b>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<div class="parent-container">
+  <video poster="" id="teaser" autoplay controls muted loop playsinline height="100%" class="full-width-video">
+      <source src="./static/videos/teaser.mp4" type="video/mp4">
+  </video>
+</div>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <!-- Paper video. --> 
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/rkXgws8fiDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video.-->
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            3D Understanding of the environment is critical for the robustness and performance of robot learning systems. As an example, 2D image-based policies can easily fail due to a slight change in camera viewpoints. However, when constructing a 3D representation, previous approaches often either sacriﬁce the rich semantic abilities of 2D foundation models or a fast update rate that is crucial real-time robotic manipulation. In this work, we propose a 3D representation based on 3D Gaussians that is both semantic and dynamic. With only a single or a few camera views, our proposed representation is able to capture a dynamic scene at 30 Hz in real-time in response to robot and object movements, which is sufﬁcient for most manipulation tasks. Our key insight in achieving this fast update frequency is to make object-centric updates to the representation. Semantic information can be extracted at the initial step from pretrained foundation models, thus circumventing the inference bottleneck of large models during policy rollouts. Leveraging our object-centric Gaussian representation, we demonstrate a straightforward yet effective way to achieve view-robustness for visuomotor policies. Our representation also enables language-conditioned dynamic grasping, for which the robot perform geometric grasp of moving objects speciﬁed by open vocabulary queries.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">View-Robust Behavior Cloning Policies</h2>
+    
+    <p>
+      From a test view that is distinct from the train view, we render the scene from the train view to close the perception gap. We further limit the rendering to the foreground Gaussians to avoid perception differences due to the changes in the background.
+    </p>
+    <br/>
+    <div class="content">
+      <img style="width: 100%;" src="static/images/test_views.pdf" alt="test views"/>
+    </div>
+    <p>
+      Below, we show clips of the rollout on the right, and the 3D representation on the left. In addition, we show the <b>raw camera view</b> at <i>bottom left</i> corner on the right.
+    </p>
+    <br/>
+
+    <h2 class="title is-3">Stack Cups</h2>
+    <h3 class="title is-5">Train Views</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video poster="" id="train_stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/record/train_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline width="56.5%">
+            <source src="./static/videos/render/train_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Test Views (Close)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video poster="" id="train_stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/record/close_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline width="56.5%">
+            <source src="./static/videos/render/close_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Test Views (Zoom-out)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video poster="" id="train_stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/record/front_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline width="56.5%">
+            <source src="./static/videos/render/front_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Test Views (Side)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video poster="" id="train_stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/record/side_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline width="56.5%">
+            <source src="./static/videos/render/side_stack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="title is-3">Unstack Cups</h2>
+    <h3 class="title is-5">Train Views</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/record/train_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline width="56.5%">
+            <source src="./static/videos/render/train_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Test Views (Close)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/record/close_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline width="56.5%">
+            <source src="./static/videos/render/close_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Test Views (Zoom-out)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/record/front_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline width="56.5%">
+            <source src="./static/videos/render/front_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-5">Test Views (Side)</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/record/side_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <video poster="" id="train_unstack" autoplay controls muted loop playsinline width="56.5%">
+            <source src="./static/videos/render/side_unstack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Zero-shot Language-conditioned Dynamic Grasping</h2>
+
+    <p>
+      With object-centric gaussian splatting, language-conditioned dynamic grasping becomes a straightforward application. Since the representation is 3D, we can directly compute grasp poses with geometric optimization. Because the representation is semantic, we can generate segmentation masks and clip embeddings on the fly. Finally, the representation is also dynamic, so we can also handle fast moving objects.
+    </p>
+
+    <!-- <div class="columns is-centered"> -->
+
+      <div class="column">
+        <div class="content">
+          <h4 style="text-align: center; margin-top: .75em">Fast Moving Object</h4>
+          <video poster="" id="grasp0" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/grasp0.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-centered">  
+        <div class="content">
+          <h4 style="text-align: center; margin-top: .75em">Diverse Moving Objects</h4>
+          <video poster="" id="grasp_more" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/grasp_more.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</section>
+
+
+
+<script type="text/javascript">
+  $(function() {
+  var screenWidth = $(window).width();
+  if (screenWidth >= 800) {
+    $('#gpt-video-1').attr('autoplay', 'autoplay');
+  }
+  if (screenWidth >= 800) {
+    $('#gpt-video-2').attr('autoplay', 'autoplay');
+  }
+  if (screenWidth >= 800) {
+    $('#click-query-icl').attr('autoplay', 'autoplay');
+  }
+});
+</script>
+
+<!-- 
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{conceptfusion,
+  author    = {Jatavallabhula, {Krishna Murthy} and Kuwajerwala, Alihusein and Gu, Qiao and Omama, Mohd and Chen, Tao and Li, Shuang and Iyer, Ganesh and Saryazdi, Soroush and Keetha, Nikhil and Tewari, Ayush and Tenenbaum, {Joshua B.} and {de Melo}, {Celso Miguel} and Krishna, Madhava and Paull, Liam and Shkurti, Florian and Torralba, Antonio},
+  title     = {ConceptFusion: Open-set Multimodal 3D Mapping},
+  journal   = {Robotics: Science and Systems (RSS)},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
